@@ -3,6 +3,7 @@
     $retrieve = file_get_contents("php://input");
     $req = json_decode($retrieve);
 
+    $imgurl = "http://localhost/nlahPOS/img/";
 
     if ($req->remitID == null) {
         $query = "INSERT INTO remittance(OrNumber, Date, Amount) VALUES ('$req->ornumber', '$req->date', '$req->amount');";
@@ -15,7 +16,7 @@
     $data = array();
 
     if($result){
-        $query = "SELECT RemittanceID, OrNumber, Date, Amount FROM remittance ORDER BY Date DESC;";
+        $query = "SELECT CONCAT('$imgurl', remImg) AS remitIMG, RemittanceID, OrNumber, Date, Amount FROM remittance ORDER BY Date DESC";
 
         $result = $conn->query($query);
         
