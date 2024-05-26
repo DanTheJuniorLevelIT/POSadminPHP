@@ -1,7 +1,7 @@
 <?php
     include 'connect.php';
 
-    $imgurl = "http://localhost/nlahPOS/img/";
+    $imgurl = "http://localhost/nlahPOS2/img/";
 
     $query = "SELECT CONCAT('$imgurl', remImg) AS remitIMG, RemittanceID, OrNumber, Date, Amount FROM remittance ORDER BY Date DESC";
 

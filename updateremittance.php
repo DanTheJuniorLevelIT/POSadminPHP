@@ -3,7 +3,7 @@
     $retrieve = file_get_contents("php://input");
     $req = json_decode($retrieve);
 
-    $imgurl = "http://localhost/nlahPOS/img/";
+    $imgurl = "http://localhost/nlahPOS2/img/";
 
     if ($req->remitID == null) {
         $query = "INSERT INTO remittance(OrNumber, Date, Amount) VALUES ('$req->ornumber', '$req->date', '$req->amount');";
