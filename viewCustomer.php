@@ -9,10 +9,11 @@ if(isset($_GET['cid'])) {
   // Calculate cutoff dates for the current month
   $cutoff15th = date('Y-m-15'); // 15th of the current month
   $firstOfMonth = date('Y-m-01'); // 1st of the current month
+  $imgurl = "http://localhost/customer/image/";
 
 
   // Query for customer details
-  $customerQuery = "SELECT c.Lastname, c.Firstname, c.Middlename, 
+  $customerQuery = "SELECT c.Lastname, c.Firstname, c.Middlename, CONCAT('$imgurl', Profilepic) AS accImg,
                     DATE_FORMAT(c.Birthdate, '%M %e, %Y') AS bdate, 
                     c.Contact, c.Address, c.Credit, c.Charges, 
                     (c.Credit - c.Charges) as Balance 

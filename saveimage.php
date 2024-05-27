@@ -16,20 +16,21 @@
         if(move_uploaded_file($_FILES["files"]["tmp_name"], $targetFilePath)){
             $query = "UPDATE product SET imgFile='$newpath' WHERE Barcode='$bid'";
             if($result = $conn->query($query)){
-                $query = "SELECT p.Barcode, p.CatID, c.Type, p.Prod_name, p.Brand, p.Size, p.Price, p.Description, CONCAT('$imgurl', p.imgFile) as img FROM product p LEFT JOIN category c ON p.CatID = c.CatID";
+            //     $query = "SELECT p.Barcode, p.CatID, c.Type, p.Prod_name, p.Brand, p.Size, p.Price, p.Description, CONCAT('$imgurl', p.imgFile) as img FROM product p LEFT JOIN category c ON p.CatID = c.CatID";
 
-                $result = $conn->query($query);
+            //     $result = $conn->query($query);
 
-                $data = array();
+            //     $data = array();
 
-                while($row = $result->fetch_object()){
-                    array_push($data,$row);
-                }
-            }else{
-                $data = "0";
+            //     while($row = $result->fetch_object()){
+            //         array_push($data,$row);
+            //     }
+            // }else{
+            //     $data = "0";
+            include 'getproduct.php';
             }
         }
     }
 
-    echo json_encode($data);
+    // echo json_encode($data);
 ?>
